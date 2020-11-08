@@ -1,0 +1,22 @@
+https://www.youtube.com/watch?v=7KHGH0fPL84&ab_channel=MertKirimgeri 
+
+Концепции:
+Линия, соединяющая ноды называется Edge
+GraphView - канвас, на котором мы рисуем ноды
+
+Нода состоит из 2-х частей: Input и Output контейнеров.
+Точка выхода (к которой крепится Edge) называется Port
+
+====== START =======
+1) Создадим 3 главных класса:
+using UnityEditor.Experimental.GraphView;
+
+DialogueGraph : EditorWindow
+DialogueGraphView : GraphView
+DialogueNode : Node
+
+
+
+
+
+
