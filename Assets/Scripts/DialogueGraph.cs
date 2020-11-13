@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -18,17 +19,36 @@ public class DialogueGraph : EditorWindow
 
     private void OnEnable()
     {
+        ConstructGraphView();
+        GenerateToolbar(); 
+    }
+
+    private void OnDisable()
+    {
+        rootVisualElement.Remove(_graphView);
+    }
+
+    private void ConstructGraphView()
+    {
         _graphView = new DialogueGraphView
         {
-            name = "Dialogue graph"
+            name = "Dialogue graph",
         };
 
         _graphView.StretchToParentSize();
         rootVisualElement.Add(_graphView);
     }
 
-    private void OnDisable()
+    // добавляем тулбар с кнопками к окну
+    private void GenerateToolbar()
     {
-        rootVisualElement.Remove(_graphView);
+        var toolbar = new Toolbar();
+
+        var nodeCreateButton = new Button(() => { _graphView.CreateNode("Dialogue node"); });
+        nodeCreateButton.text = "Create Node";
+
+        toolbar.Add(nodeCreateButton);
+
+        rootVisualElement.Add(toolbar);
     }
 }

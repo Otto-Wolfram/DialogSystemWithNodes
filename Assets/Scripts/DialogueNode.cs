@@ -9,7 +9,7 @@ public class DialogueNode : Node
     public string GUID;
 
     // предложение, которое надо сказать
-    public string dialogText;
+    public string dialogueText;
 
     // является ли стартовой?
     public bool entryPoint;
